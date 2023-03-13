@@ -77,11 +77,244 @@ document.addEventListener("DOMContentLoaded", function () {
       "asw-tools"
     );
   var r = document.createElement("div");
-  r.innerHTML = `\n<link href="https://fonts.googleapis.com/icon?family=Material+Icons&text=${a.toString()}" rel="stylesheet">\n<style>.asw-menu,.asw-menu-btn{position:fixed;left:20px;transition:.3s;z-index:500000}.asw-widget{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-weight:400;-webkit-font-smoothing:antialiased}.asw-widget *{box-sizing:border-box}.asw-menu-btn{bottom:20px;background:#0048ff!important;box-shadow:0 5px 15px 0 rgb(37 44 97 / 15%),0 2px 4px 0 rgb(93 100 148 / 20%);border-radius:50%;align-items:center;justify-content:center;transform:translateY(0);width:64px;height:64px;display:flex;fill:white;cursor:pointer}.asw-menu-btn svg{width:34px;height:34px;min-height:34px;min-width:34px;max-width:34px;max-height:34px;background:0 0!important}.asw-menu-btn:hover{transform:scale(1.05)}.asw-menu{display:none;top:20px;border-radius:8px;box-shadow:-1px 0 20px -14px #000;opacity:1;overflow:hidden;background:#fff;width:500px;line-height:1;font-size:14px;height:calc(100vh - 40px - 75px);letter-spacing:.015em}.asw-btn,.asw-footer a{font-size:14px!important}.asw-menu-header{display:flex;align-items:center;justify-content:space-between;background:#0334b1;color:#fff;padding-left:12px;font-weight:600}.asw-menu-header>div{display:flex}.asw-menu-header div[role=button]{padding:12px;cursor:pointer}.asw-menu-header div[role=button]:hover,.asw-minus:hover,.asw-plus:hover{opacity:.8}.asw-items{display:flex;gap:10px;padding:0;list-style:none;flex-wrap:wrap;justify-content:space-between}.asw-btn{width:140px;height:120px;border-radius:8px;padding:15px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:#333;background:#ecf3ff;border:3px solid #ecf3ff;transition:background-color .3s;cursor:pointer}.asw-btn .material-icons{margin-bottom:16px}.asw-btn:hover{border-color:#0048ff}.asw-btn.asw-selected{background:#0048ff;color:#fff;border-color:#0048ff}.asw-footer{position:absolute;bottom:0;left:0;right:0;background:#0334b1;padding:16px;text-align:center;color:#fff}.asw-footer a{text-decoration:underline;color:#fff;background:0 0!important}.asw-menu-content{overflow:scroll;max-height:calc(100% - 80px);color:#000}.asw-card{margin:0 15px 30px}.asw-card-title{font-size:18px;padding:15px 0}.asw-adjust-font{background:#ecf3ff;padding:20px 25px;margin-bottom:16px}.asw-adjust-font .label{display:flex;align-items:center}.asw-adjust-font>div{display:flex;justify-content:space-between;margin-top:20px;align-items:center;font-size:16px;font-weight:700}.asw-adjust-font div[role=button]{background:#0648ff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer}.asw-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:10000;display:none}@media only screen and (max-width:560px){.asw-menu{width:calc(100vw - 20px);left:10px}.asw-btn{width:calc(50% - 8px)}}</style>\n<div class="asw-widget"> <div class="asw-menu-btn" title="Open Accessibility Menu" role="button" aria-expanded="false"> <svg xmlns="http://www.w3.org/2000/svg" style="width:34px;height:34px;min-height:34px;min-width:34px;max-width:34px;max-height:34px;" viewBox="0 0 24 24" width="34px" height="34px" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg> </div><div class="asw-menu"> <div class="asw-menu-header"> Accessibility Menu <div> <div role="button" class="asw-menu-reset" title="Reset Settings"> <span class="material-icons"> restart_alt </span> </div><div role="button" class="asw-menu-close" title="Close Accessibility Menu"> <span class="material-icons"> close </span> </div></div></div><div class="asw-menu-content"> <div class="asw-card" style="margin-top: 15px;"> <div class="asw-card-title"> Content Adjustments </div><div class="asw-adjust-font"> <div class="label"> <span class="material-icons" style="margin-right:8px;"> format_size </span> Adjust Font Size </div><div> <div class="asw-minus" data-key="font-size" role="button" aria-pressed="false"> <span class="material-icons"> remove </span> </div><div class="asw-amount"> ${
+  r.innerHTML = `\n
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons&text=${a.toString()}" rel="stylesheet">
+\n
+<style>.asw-menu,.asw-menu-btn{
+    position:fixed;
+    left:20px;
+    transition:.3s;
+    z-index:500000
+}
+.asw-widget{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased
+}
+.asw-widget *{
+    box-sizing:border-box
+}
+.asw-menu-btn{
+    bottom:20px;
+    background:#0048ff!important;
+    box-shadow:0 5px 15px 0 rgb(37 44 97 / 15%),0 2px 4px 0 rgb(93 100 148 / 20%);
+    border-radius:50%;
+    align-items:center;
+    justify-content:center;
+    transform:translateY(0);
+    width:64px;
+    height:64px;
+    display:flex;
+    fill:white;
+    cursor:pointer
+}
+.asw-menu-btn svg{
+    width:34px;
+    height:34px;
+    min-height:34px;
+    min-width:34px;
+    max-width:34px;
+    max-height:34px;
+    background:0 0!important
+}
+.asw-menu-btn:hover{
+    transform:scale(1.05)
+}
+.asw-menu{
+    display:none;
+    top:20px;
+    border-radius:8px;
+    box-shadow:-1px 0 20px -14px #000;
+    opacity:1;
+    overflow:hidden;
+    background:#fff;
+    width:500px;
+    line-height:1;
+    font-size:14px;
+    height:calc(100vh - 40px - 75px);
+    letter-spacing:.015em
+}
+.asw-btn,.asw-footer a{
+    font-size:14px!important
+}
+.asw-menu-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#0334b1;
+    color:#fff;
+    padding-left:12px;
+    font-weight:600
+}
+.asw-menu-header>div{
+    display:flex
+}
+.asw-menu-header div[role=button]{
+    padding:12px;
+    cursor:pointer
+}
+.asw-menu-header div[role=button]:hover,.asw-minus:hover,.asw-plus:hover{
+    opacity:.8
+}
+.asw-items{
+    display:flex;
+    gap:10px;
+    padding:0;
+    list-style:none;
+    flex-wrap:wrap;
+    justify-content:space-between
+}
+.asw-btn{
+    width:140px;
+    height:120px;
+    border-radius:8px;
+    padding:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    color:#333;
+    background:#ecf3ff;
+    border:3px solid #ecf3ff;
+    transition:background-color .3s;
+    cursor:pointer
+}
+.asw-btn .material-icons{
+    margin-bottom:16px
+}
+.asw-btn:hover{
+    border-color:#0048ff
+}
+.asw-btn.asw-selected{
+    background:#0048ff;
+    color:#fff;
+    border-color:#0048ff
+}
+.asw-footer{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#0334b1;
+    padding:16px;
+    text-align:center;
+    color:#fff
+}
+.asw-footer a{
+    text-decoration:underline;
+    color:#fff;
+    background:0 0!important
+}
+.asw-menu-content{
+    overflow:scroll;
+    max-height:calc(100% - 80px);
+    color:#000
+}
+.asw-card{
+    margin:0 15px 30px
+}
+.asw-card-title{
+    font-size:18px;
+    padding:15px 0
+}
+.asw-adjust-font{
+    background:#ecf3ff;
+    padding:20px 25px;
+    margin-bottom:16px
+}
+.asw-adjust-font .label{
+    display:flex;
+    align-items:center
+}
+.asw-adjust-font>div{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+    align-items:center;
+    font-size:16px;
+    font-weight:700
+}
+.asw-adjust-font div[role=button]{
+    background:#0648ff;
+    border-radius:50%;
+    width:36px;
+    height:36px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    cursor:pointer
+}
+.asw-overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:10000;
+    display:none
+}
+@media only screen and (max-width:560px){
+    .asw-menu{
+        width:calc(100vw - 20px);
+        left:10px
+    }
+    .asw-btn{
+        width:calc(50% - 8px)
+    }
+}
+</style>
+\n
+<div class="asw-widget">
+<div class="asw-menu-btn" title="Open Accessibility Menu" role="button" aria-expanded="false">
+   <svg xmlns="http://www.w3.org/2000/svg" style="width:34px;height:34px;min-height:34px;min-width:34px;max-width:34px;max-height:34px;" viewBox="0 0 24 24" width="34px" height="34px" >
+      <path d="M0 0h24v24H0V0z" fill="none"/>
+      <path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+   </svg>
+</div>
+<div class="asw-menu">
+<div class="asw-menu-header">
+   Accessibility Menu 
+   <div>
+      <div role="button" class="asw-menu-reset" title="Reset Settings"> <span class="material-icons"> restart_alt </span> </div>
+      <div role="button" class="asw-menu-close" title="Close Accessibility Menu"> <span class="material-icons"> close </span> </div>
+   </div>
+</div>
+<div class="asw-menu-content">
+<div class="asw-card" style="margin-top: 15px;">
+<div class="asw-card-title"> Content Adjustments </div>
+<div class="asw-adjust-font">
+<div class="label"> <span class="material-icons" style="margin-right:8px;"> format_size </span> Adjust Font Size </div>
+<div>
+<div class="asw-minus" data-key="font-size" role="button" aria-pressed="false"> <span class="material-icons"> remove </span> </div>
+<div class="asw-amount">
+ ${
     t.states.fontSize && 1 != t.states.fontSize
       ? `${parseInt(100 * t.states.fontSize)}%`
       : "Default"
-  }</div><div class="asw-plus" data-key="font-size" role="button" aria-pressed="false"> <span class="material-icons"> add </span> </div></div></div><div class="asw-items"> ${i}</div></div><div class="asw-card" style="margin-top: 15px;"> <div class="asw-card-title"> Color Adjustments </div><div class="asw-items"> ${o}</div></div><div class="asw-card" style="margin-top: 15px;"> <div class="asw-card-title"> Tools </div><div class="asw-items"> ${l}</div></div></div><div class="asw-footer"> <a href="https://bennyluk.github.io/Sienna-Accessibility-Widget/">Sienna: Free Accessibility Widget</a> </div></div><div class="asw-overlay"> </div></div>`;
+  }
+ </div>
+<div class="asw-plus" data-key="font-size" role="button" aria-pressed="false"> <span class="material-icons"> add </span> </div>
+</div></div>
+<div class="asw-items"> ${i}</div>
+</div>
+<div class="asw-card" style="margin-top: 15px;">
+   <div class="asw-card-title"> Color Adjustments </div>
+   <div class="asw-items"> ${o}</div>
+</div>
+<div class="asw-card" style="margin-top: 15px;">
+   <div class="asw-card-title"> Tools </div>
+   <div class="asw-items"> ${l}</div>
+</div>
+</div>
+<div class="asw-footer"> <a href="https://github.com/nafeeur/accessibility-widget/tree/main">Accessibility Widget</a> </div>
+</div>
+<div class="asw-overlay"> </div>
+</div>`;
   const c = function (t, e) {
       let s =
         document.getElementById(e || "") || document.createElement("style");
