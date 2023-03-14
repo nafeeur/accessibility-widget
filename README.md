@@ -1,6 +1,6 @@
-# accessibility-widget-modified
+# accessibility-widget-improved
 
-Original Code by 
+Code based on: 
 
 https://github.com/bennyluk/Sienna-Accessibility-Widget
 
