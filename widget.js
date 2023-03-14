@@ -1,4 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
+ 
+  const synth = window.speechSynthesis;
+  let utterance = null;
+
+  const speakText = () => {
+    const textToSpeak = document.body.innerText;
+    utterance = new SpeechSynthesisUtterance(textToSpeak);
+    synth.speak(utterance);
+  };
+
+  const stopSpeaking = () => {
+    if (synth.speaking) {
+      synth.cancel();
+    }
+  };
+
+  const handleButtonClick = (event) => {
+    if (event.target.dataset.key === "text-to-speech") {
+      if (synth.speaking) {
+        stopSpeaking();
+      } else {
+        speakText();
+      }
+    }
+  };
+
+  document.addEventListener("click", handleButtonClick);
+  
   let t = { states: {} };
   const e = function () {
     !(function (t, e, s) {
@@ -40,8 +68,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     return n;
   };
+  
   let i = n([
-      { label: "Readable Font", key: "readable-font", icon: "local_parking" },
+      { label: "Readable Font", key: "readable-font", icon: "rtt" },
       { label: "Highlight Links", key: "highlight-links", icon: "link" },
       { label: "Highlight Title", key: "highlight-title", icon: "title" }
     ]),
@@ -66,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ),
     l = n(
       [
+        {label:"Text to Speech", key:"text-to-speech", icon:"record_voice_over"},
         { label: "Big Cursor", key: "big-cursor", icon: "mouse" },
         {
           label: "Stop Animations",
