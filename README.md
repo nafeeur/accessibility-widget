@@ -29,7 +29,3 @@ The code adds event listeners to the button and menu elements that toggle the vi
 ## Conclusion:
 
 The JavaScript code provides an accessibility widget for web pages that allows users to adjust various settings to make the page more accessible, including font size, color adjustments, and various tools such as text-to-speech and big cursor. The widget is implemented as a button that can be clicked to open the accessibility menu. The code uses the SpeechSynthesis API to provide text-to-speech functionality and stores the state of the widget in a cookie. The code generates the HTML elements for the accessibility menu using the n() function and provides several utility functions for manipulating CSS rules and updating the UI.
-
-Code based on: 
-
-https://github.com/bennyluk/Sienna-Accessibility-Widget
